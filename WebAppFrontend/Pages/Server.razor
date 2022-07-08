@@ -1,0 +1,23 @@
+@page "/server"
+@page "/server/{ServerAddr}"
+
+<PageTitle>Server</PageTitle>
+
+<h1>
+  Customer:
+  @if (string.IsNullOrEmpty(ServerAddr))
+  {
+    @:None
+  }
+  else
+  {
+    @ServerAddr
+  }
+</h1>
+
+@code
+{
+
+    [Parameter]
+    public string? ServerAddr { get; set; }
+}

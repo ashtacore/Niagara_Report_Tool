@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="queryThroughRest-rt" bajaVersion="0" vendor="JoshuaRunyan" vendorVersion="1.0" description="Provides a REST interface for BQL and NEQL queries" preferredSymbol="qtr" nre="true" autoload="true" installable="true" buildMillis="1657145898040" buildHost="DESKTOP-B90T1MU" moduleName="queryThroughRest" runtimeProfile="rt">
+ <dependencies>
+  <dependency name="bql-rt" vendor="Tridium" vendorVersion="4.7"/>
+  <dependency name="neql-rt" vendor="Tridium" vendorVersion="4.7"/>
+  <dependency name="web-rt" vendor="Tridium" vendorVersion="4.7"/>
+  <dependency name="baja" vendor="Tridium" vendorVersion="4.7"/>
+  <dependency name="search-rt" vendor="Tridium" vendorVersion="4.7"/>
+ </dependencies>
+ <dirs/>
+ <types>
+  <type class="com.joshuarunyan.queryThroughRest.BRestServlet" name="RestServlet"/>
+ </types>
+ <permissions>
+  <niagara-permission-groups type="all"/>
+  <niagara-permission-groups type="workbench"/>
+  <niagara-permission-groups type="station"/>
+ </permissions>
+</module>

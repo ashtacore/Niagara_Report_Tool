@@ -1,0 +1,37 @@
+/* Module Build File */
+
+description     = "Provides a REST interface for BQL and NEQL queries"
+ext {
+}
+niagaraModule {
+  moduleName = "queryThroughRest"
+  preferredSymbol = "qtr"
+  runtimeProfile = "rt"
+}
+
+dependencies {
+  compile "Tridium:nre:4.7"
+  compile "Tridium:baja:4.7"
+  compile "Tridium:bql-rt:4.7"
+  compile "Tridium:neql-rt:4.7"
+  compile "Tridium:web-rt:4.7"
+  compile "Tridium:search-rt:4.7"
+  compile "org.apache.tomcat:tomcat-servlet-api:8.5.81"
+  //compile "org.json:json:20220320"
+}
+
+moduleTestJar {
+  from('srcTest') {
+  }
+}
+
+//getBuildscript().getDependencies().add("classpath", "org.json:json:20220320")
+
+/*buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.json:json:20220320")
+  }
+}*/

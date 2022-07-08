@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "/media/jrunyan/New Volume/My Files/development/Niagara_Report_Tool/WebAppFrontend/WebAppFrontend.csproj": {}
+  },
+  "projects": {
+    "/media/jrunyan/New Volume/My Files/development/Niagara_Report_Tool/WebAppFrontend/WebAppFrontend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/media/jrunyan/New Volume/My Files/development/Niagara_Report_Tool/WebAppFrontend/WebAppFrontend.csproj",
+        "projectName": "WebAppFrontend",
+        "projectPath": "/media/jrunyan/New Volume/My Files/development/Niagara_Report_Tool/WebAppFrontend/WebAppFrontend.csproj",
+        "packagesPath": "/home/jrunyan/.nuget/packages/",
+        "outputPath": "/media/jrunyan/New Volume/My Files/development/Niagara_Report_Tool/WebAppFrontend/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jrunyan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Blazored.LocalStorage": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.301/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

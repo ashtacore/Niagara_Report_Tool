@@ -1,0 +1,97 @@
+﻿@inject ILocalStorageService localStorage
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">WebAppFrontend</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="oi oi-credit-card" aria-hidden="true"></span> Counter
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
+@code {
+    //NavMenu Manipulation
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    //Local Storage Manipulation for list of servers
+    string? NewServerAddress { get; set; }
+    JObject? ServerToRemove { get; set; }
+    JArray? ServerListJson { get; set; }
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await GetServerListFromLocalStorage();
+
+            StateHasChanged();
+        }
+    }
+
+    async Task GetServerListFromLocalStorage()
+    {
+        string? ServerListJsonString = await localStorage.GetItemAsync<string>("serverList");
+
+        if (!string.IsNullOrEmpty(ServerListJsonString))
+        {
+            ServerListJson = JArray.Parse(ServerListJsonString);
+        }
+    }
+
+    async Task AddServer()
+    {
+        if (!string.IsNullOrEmpty(NewServerAddress) && ServerListJson != null && !ServerListJson.Any(x => x.Value<string>("address") == NewServerAddress))
+        {
+            ServerListJson.Add(new JObject { { "address", NewServerAddress }, { "name", null } });
+            await localStorage.SetItemAsync("serverList", ServerListJson.ToString());
+            NewServerAddress = null;
+            StateHasChanged();
+
+            await SaveChangedServerList();
+        }
+
+        
+    }
+
+    async Task RemoveServer()
+    {
+        if (ServerToRemove != null && ServerListJson != null)
+        {
+            ServerListJson.Remove(ServerToRemove);
+            ServerToRemove = null;
+            StateHasChanged();
+
+            await SaveChangedServerList();
+        }
+    }
+
+    async Task SaveChangedServerList()
+    {
+        if (ServerListJson != null)
+        {
+            await localStorage.SetItemAsync("serverList", ServerListJson.ToString());
+        }
+    }
+}

@@ -1,0 +1,24 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+@code
+{
+    Server server = new Server();
+
+    public class Server
+    {
+        public string? addr { get; set; }
+        public string? user { get; set; }
+        public string? pass { get; set; }
+
+        public Server()
+        {
+            addr = "";
+            user = "";
+            pass = "";
+        }
+    }
+}
