@@ -1,0 +1,2 @@
+# Niagara Reporting Tool
+This is primarily a learning project for C#/ASP.Net Core. I will write full documentation when down, but to summarize, this software will provide an interface for remoting executing NEQL/BQL queries on a Niagara Station.
